@@ -1,0 +1,79 @@
+<div class="main">
+    <div style="display:flex;">
+        <div style="display:flex;justify-content: center;width:30%">
+            <p>PRODUCTS</p>
+        </div>
+        <div style="display:flex;justify-content:center;width:60%">
+            <p>PRICE</p>
+            <p style="margin-left:20px;">QUANTITY</p>
+        </div>
+        <div>
+            <p style="margin-right:20px">TOTAL</p>
+        </div>
+    </div>
+    <div class="scrollbar" style="display:flex;flex-direction: column;height:50%;overflow-y:auto; scrollbar-width: 2px;
+    scrollbar-color: #888 #f1f1f1;">
+        <div style="height:100%;">
+            <div *ngIf="ProductData.length==0"
+                style="background-color:white; width:94%;margin:0 auto;height:20%;align-items: center;display: flex;justify-content: center;">
+                <h2>THERE ARE NO PRODUCTS</h2>
+            </div>
+    
+            <div *ngFor="let items of ProductData;index as i"
+                style="background-color:white; width:94%;margin:0 auto;height:20%;align-items: center;display: flex;justify-content: center;">
+                <div>
+                    <div *ngIf="ProductData.length>0" style="width:100%">
+                        <button class="circle-button" (click)="deleteIndex(i)">X</button>
+                        {{items.name}}
+                        {{items.price}}
+                        <button (click)="decrement(i,items.count)">-</button>
+                        <span>
+                            {{items.count}}
+                        </span>
+                        <button (click)="increment(i,items.count)">+</button>
+                        {{items.price*items.count}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>SubTotal</th>
+                <td>
+                    <div></div>
+                    <div>{{totalItems}} items</div>
+                </td>
+            </tr>
+            <tr>
+                <th>VAT tax</th>
+                <td>
+                    <div></div>
+                    <div>EUR</div>
+                </td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td>
+                    <div></div>
+                    <div>EUR</div>
+                </td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>
+                    EUR
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width:94%;margin:0 auto;display: flex;justify-content: space-between;margin-top:10px;">
+        <button
+            style="width: 48%;background-color:rgb(225, 76, 76);color:white;border: none;border-radius: 2px;height:40px">Cancel
+            Sale</button>
+        <button
+            style="width: 48%;background-color: rgb(122, 196, 122);color:white;border: none;border-radius: 2px;height:40px">Process
+            Sale</button>
+    </div>
+</div>

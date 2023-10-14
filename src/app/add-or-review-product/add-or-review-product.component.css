@@ -1,0 +1,82 @@
+.main {
+    background-color: rgb(224, 222, 222);
+    height: 100vh;
+    width: 40vw;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-top: 2px solid rgb(214, 213, 213);
+}
+
+td,
+th {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(246, 245, 245);
+}
+
+td {
+    background-color: white;
+}
+
+tr:last-child th {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td {
+    border-bottom-right-radius: 10px;
+}
+
+.circle-button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: red;
+    border: none;
+    color: #fff;
+    font-size: 8px;
+    cursor: pointer;
+    position: relative;
+    right: 50px;
+}
+
+.circle-button:hover {
+    background-color: rgb(234, 22, 22);
+}
+
+.container {
+    position: relative;
+    bottom: 12px;
+    right: 266px;
+    color: white;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10px;
+  }
+
+.scrollbar::-webkit-scrollbar-track {
+    background: rgb(179, 177, 177);
+    border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136);
+    border-radius: 10px;
+  }
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(100, 100, 100);
+    border-radius: 10px;
+  }
+
+.scrollbar::-webkit-scrollbar-thumb:active {
+    background: rgb(68, 68, 68);
+    border-radius: 10px;
+  }
