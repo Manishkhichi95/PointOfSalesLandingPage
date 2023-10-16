@@ -1,123 +1,130 @@
 .main {
-    background-color: rgb(224, 222, 222);
-    height: 100vh;
-    width: 40vw;
+  background-color: rgb(224, 222, 222);
+  height: 100vh;
+  width: 40vw;
 }
 
-table {
-    width: 90%;
-    margin: 0 auto;
-    border-top: 2px solid rgb(214, 213, 213);
+.table {
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px solid rgb(214, 213, 213);
 }
 
 td,
 th {
-    padding: 8px;
-    text-align: left;
+  padding: 8px;
+  text-align: left;
 }
 
 th {
-    background-color: rgb(246, 245, 245);
+  background-color: rgb(246, 245, 245);
 }
 
 td {
-    background-color: white;
+  background-color: white;
 }
 
 tr:last-child th {
-    border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 tr:last-child td {
-    border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .circle-button {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: red;
-    border: none;
-    color: #fff;
-    font-size: 8px;
-    cursor: pointer;
-    position: relative;
-    right: 50px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: red;
+  border: none;
+  color: #fff;
+  font-size: 8px;
+  cursor: pointer;
+  position: relative;
 }
 
 .circle-button:hover {
-    background-color: rgb(234, 22, 22);
+  background-color: rgb(234, 22, 22);
 }
 
 .container {
-    position: relative;
-    bottom: 12px;
-    right: 266px;
-    color: white;
+  position: relative;
+  bottom: 12px;
+  right: 266px;
+  color: white;
 }
 
-.scrollbar{
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }
 
 .scrollbar::-webkit-scrollbar {
-    width: 10px;
-    position: relative;
-    right:50px;
-  }
+  width: 10px;
+  position: relative;
+  right: 50px;
+}
 
 .scrollbar::-webkit-scrollbar-track {
-    background: rgb(179, 177, 177);
-    border-radius: 10px;
+  background: rgb(179, 177, 177);
+  border-radius: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-    background: rgb(136, 136, 136);
-    border-radius: 10px;
-  }
+  background: rgb(136, 136, 136);
+  border-radius: 10px;
+}
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgb(100, 100, 100);
-    border-radius: 10px;
-  }
+  background: rgb(100, 100, 100);
+  border-radius: 10px;
+}
 
 .scrollbar::-webkit-scrollbar-thumb:active {
-    background: rgb(68, 68, 68);
-    border-radius: 10px;
-  }
+  background: rgb(68, 68, 68);
+  border-radius: 10px;
+}
 
 
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 0% auto;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #1b1a1a;
+  width: 20%;
+}
+
+.close {
+  color: #0f0101;
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+input{
+border:none;
+background-color: rgb(246, 245, 245);
+}
+
+@media (max-width: 1200px) {
+  .main {
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 60vw;
   }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 1% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  @media (max-width: 1200px) { 
-    .main {
-     overflow-y: auto;
-     overflow-x: auto;
-     width:60vw;
-   } 
- }
+}

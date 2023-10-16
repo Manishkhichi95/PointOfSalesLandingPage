@@ -1,17 +1,76 @@
 <div class="modal" [ngStyle]="{'display': showModal ? 'block' : 'none'}">
-    <!-- Modal content goes here -->
     <div class="modal-content">
-      <span class="close" (click)="closeModal()">&times;</span>
-      <p>This is your modal content.</p>
-    </div>
-  </div>
+        <div style="background-color: #011b31;color:white;width:100%;height:50px;">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h3>Receipt</h3>
+        </div>
+        <div>
+            Sale No.: {{sale_No}}
+            <div>
+                Date: {{ currentDate_Time | date: 'MM-dd-yyyy HH:mm:ss' }}
+            </div>
+            <div>
+                <div *ngIf="ProductData.length==0">
+                <h2>THERE ARE NO PRODUCTS</h2>
+            </div>
+            <table  *ngIf="ProductData.length>0">
+                <tr>
+                    <td>#</td>
+                    <td>Products</td>
+                    <td>Quantity</td>
+                    <td>SubTotal</td>
+                </tr>
+                <tr *ngFor="let items of ProductData;index as i" style="width:100%">
+                    <td>
+                        {{count}}
+                    </td>
+
+                    <td>
+                        {{items.name}}
+                        </td>
+
+                     <td>
+                        {{items.Price}}
+                    </td>
+
+                    <td>
+                        {{items.count}}
+                    </td>
+
+                    <td>
+                    {{items.price * items.count}}
+                    </td>
+                    <tr>
+                        <td>Total Items</td>
+                        <td> {{totalItems}}</td>
+                        <td>Total</td>
+                        <td></td>
+                        <td>
+                            {{calculateTotalPrice()}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Discount {{discount}}</td>
+                        <td>VAT {{vatTax}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+                <div>
+                    <button (click)="closeModal()" style="width:100%;height:30px;background-color:white;">Close</button>
+                </div>
+            </div>
+        </div>
 <div class="main">
     <div style="display:flex;">
-        <div style="display:flex;justify-content: center;width:30%">
+        <div style="display:flex;justify-content: center;width:40%">
             <p>PRODUCTS</p>
         </div>
+        <p>PRICE</p>
         <div style="display:flex;justify-content:center;width:60%">
-            <p>PRICE</p>
             <p style="margin-left:20px;">QUANTITY</p>
         </div>
         <div>
@@ -21,25 +80,33 @@
     <div class="scrollbar" style="display:flex;flex-direction: column;height:50%;overflow-y:auto;">
         <div style="height:100%;">
             <div *ngIf="ProductData.length==0"
-                style="background-color:white; width:94%;margin:0 auto;height:20%;align-items: center;display: flex;justify-content: center;">
+                style="background-color:white; width:94%;margin:0 auto;margin-top:1px;height:20%;align-items: center; display: flex;justify-content: center;">
                 <h2>THERE ARE NO PRODUCTS</h2>
             </div>
-    
+
             <div *ngFor="let items of ProductData;index as i"
-                style="background-color:white; width:94%;margin:0 auto;height:20%;align-items: center;display: flex;justify-content: center;">
-                <div>
-                    <div *ngIf="ProductData.length>0" style="width:100%">
-                        <button class="circle-button" (click)="deleteIndex(i)">X</button>
-                        {{items.name}}
-                        {{items.Price}}
-                        <button (click)="decrement(i,items.count)" [disabled]="items.count==0">-</button>
-                        <span>
-                            {{items.count}}
-                        </span>
-                        <button (click)="increment(i,items.count)">+</button>
-                       <div>{{items.price * items.count}}</div> 
-                    </div>
-                </div>
+                style="background-color:white; width:94%;margin:0 auto;height:20%;border-top: 2px solid rgb(214, 213, 213);align-items: center;display:flex;">
+                    <table *ngIf="ProductData.length>0" style="width:100%;">
+                        <tr>
+                            <button class="circle-button" (click)="deleteIndex(i)">X</button>
+                            <td style="padding-left: 108px;">
+                                {{items.name}}
+                            </td>
+                            <td style="padding-left: 108px;">
+                                {{items.price}}
+                            </td>
+                            <td style="padding-left: 108px;">
+                                <button (click)="decrement(i,items.count)" [disabled]="items.count==0">-</button>
+                                <span>
+                                    {{items.count}}
+                                </span>
+                                <button (click)="increment(i,items.count)">+</button>
+                            </td>
+                            <td style="padding-left: 108px;">
+                                {{items.price * items.count}}
+                            </td>
+                        </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -47,25 +114,25 @@
         <table class="table">
             <tr>
                 <th>SubTotal</th>
-                <td>
+                <td style="display:flex;justify-content: space-between;">
                     <div></div>
                     <div>{{totalItems}} items{{calculateTotalPrice()}}</div>
                 </td>
             </tr>
             <tr>
                 <th>VAT tax</th>
-                <td>
-                    <div>             
-                        <input type="text" [(ngModel)]="vatTax" appPercentInput/>
+                <td style="display:flex;justify-content: space-between;">
+                    <div>
+                        <input type="text" [(ngModel)]="vatTax" appPercentInput />
                     </div>
                     <div>{{getTotalVatTax()| number:'1.1-1'}}EUR</div>
                 </td>
             </tr>
             <tr>
                 <th>Discount</th>
-                <td>
+                <td style="display:flex;justify-content: space-between;">
                     <div>
-                            <input type="text" [(ngModel)]="discount" appPercentInput/>
+                        <input type="text" [(ngModel)]="discount" appPercentInput />
                     </div>
                     <div>{{getTotaldiscount()| number:'1.1-1'}}EUR</div>
                 </td>
@@ -73,17 +140,19 @@
             <tr>
                 <th>Total</th>
                 <td>
-                  {{getTotalAmount()| number:'1.1-1'}}  EUR
+                    {{getTotalAmount()| number:'1.1-1'}} EUR
                 </td>
             </tr>
         </table>
     </div>
     <div style="width:94%;margin:0 auto;display: flex;justify-content: space-between;margin-top:10px;">
         <button
-            style="width: 48%;background-color:rgb(225, 76, 76);color:white;border: none;border-radius: 2px;height:40px" (click)="cancelSale()">Cancel
+            style="width: 48%;background-color:rgb(225, 76, 76);color:white;border: none;border-radius: 2px;height:40px"
+            (click)="cancelSale()">Cancel
             Sale</button>
-        <button id="openModal" 
-            style="width: 48%;background-color: rgb(122, 196, 122);color:white;border: none;border-radius: 2px;height:40px" (click)="processSale()">Process
+        <button id="openModal"
+            style="width: 48%;background-color: rgb(122, 196, 122);color:white;border: none;border-radius: 2px;height:40px"
+            (click)="processSale()">Process
             Sale</button>
     </div>
 </div>

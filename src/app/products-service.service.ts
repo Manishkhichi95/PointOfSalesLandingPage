@@ -13,12 +13,10 @@ export class ProductsServiceService {
   constructor(private http: HttpClient) { }
 
   getProductsList() {
-    debugger
     return this.http.get(this.url);
   }
 
   setProductData(product: any) {
-    debugger
     this.count++;
     this.totalItems.next(this.count);
     this.productData.includes(product) ?
@@ -28,12 +26,10 @@ export class ProductsServiceService {
   }
 
   getProductData() {
-    debugger
     return this.productData;
   }
 
   getTotalItems() {
-    debugger
     return this.totalItems;
   }
 

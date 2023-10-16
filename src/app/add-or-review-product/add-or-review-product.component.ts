@@ -15,26 +15,25 @@ export class AddOrReviewProductComponent implements OnInit {
   totalVatTax : number = 0;
   totalDiscount : number = 0; 
   isOpen : boolean = false;
+  sale_No : number = 101;
+  count: number = 0;
+  currentDate_Time: Date = new Date();
   
   constructor(public ProductsService: ProductsServiceService) { }
   
   ngOnInit(): void { 
-    debugger
     this.initilizeProductData();
   }
 
   initilizeProductData(){
     this.ProductData = this.ProductsService.getProductData();
     this.totalVatTax = (this.calculateTotalPrice()/ parseInt(this.vatTax))*100;
-    console.log(this.totalVatTax)
-    debugger
     this.ProductsService.totalItems.subscribe((res: any) => {
       this.totalItems = res;
     })
   }
   
   deleteIndex(i: number) {
-    debugger
     this.totalItems == 0 ? '' : this.totalItems--;
     i == 0 ?
     (this.lastIndex = true,
@@ -43,14 +42,12 @@ export class AddOrReviewProductComponent implements OnInit {
     }
     
     decrement(index: number, count: number) {
-      debugger
       this.totalItems == 0 ? '' : this.totalItems--;
       count == 0 ? '' : count--;
       this.ProductData[index].count = count;
     }
 
   increment(index: number, count: number) {
-    debugger
     this.totalItems++;
     count++;
     this.ProductData[index].count = count;
@@ -78,7 +75,6 @@ export class AddOrReviewProductComponent implements OnInit {
   }
   
   cancelSale(){
-    debugger;
     this.ProductData = [];
     this.totalItems = 0;
     this.discount = '10%';
@@ -92,10 +88,13 @@ export class AddOrReviewProductComponent implements OnInit {
   showModal = false;
 
   processSale() {
+    this.count++;
+    this.sale_No++;
     this.showModal = true;
   }
 
   closeModal() {
     this.showModal = false;
+    this.cancelSale();
   }
 }
