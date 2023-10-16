@@ -3,14 +3,14 @@
         "name": "Phone",
         "price": "130",
         "category": "Phones",
-        "description": "",
+        "description": "Best SmartPhone",
         "image": "/assets/mobile.png"
     },
     {
         "name": "Goggle",
         "price": "2",
         "category": "Glasses",
-        "description": "fashion, clothes , sweater, wool, cardigan,…",
+        "description": "fashion,Sunglasses…",
         "image": "/assets/goggles.png"
     },
     {
@@ -18,27 +18,27 @@
         "price": "46",
         "category": "Clothing",
         "description": "fashion, tie, clothes, accessory , accessoire,…",
-        "image": "/assets/goggles.png"
+        "image": "/assets/tie.jfif"
     },
     {
         "name": "jacket",
         "price": "190",
         "category": "Clothing",
         "description": "winter jacket ",
-        "image": "/assets/mobile.png"
+        "image": "/assets/jacket.jfif"
     },
     {
         "name": "belt",
         "price": "90",
         "category": "Clothing",
         "description": "fashion, tie, clothes, accessory , accessoire,…",
-        "image": "/assets/mobile.png"
+        "image": "/assets/belt.jfif"
     },
     {
         "name": "shirt",
         "price": "290",
         "category": "Clothing",
-        "description": "winter jacket ",
-        "image": "/assets/mobile.png"
+        "description": "100% pure Cotton Shirt  ",
+        "image": "/assets/shirt.jfif"
     }
 ]
