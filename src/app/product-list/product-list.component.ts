@@ -9,6 +9,7 @@ import { ProductsServiceService } from '../products-service.service';
 })
 export class ProductListComponent {
   productList: any;
+  colors: string[] = ['red', 'grey', 'green', 'blue', 'purple','black'];
   constructor(private ProductsService: ProductsServiceService) { }
   
   ngOnInit() {
@@ -19,6 +20,5 @@ export class ProductListComponent {
 
    sendProductData(items:Object){
     this.ProductsService.setProductData(items);
-    this.ProductsService.totalItems++;
   }
 }

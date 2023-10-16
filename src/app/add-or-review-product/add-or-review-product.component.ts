@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsServiceService } from '../products-service.service';
 
 @Component({
@@ -7,37 +7,95 @@ import { ProductsServiceService } from '../products-service.service';
   styleUrls: ['./add-or-review-product.component.css']
 })
 export class AddOrReviewProductComponent implements OnInit {
-
-  totalItems: any;
+  totalItems: number = 0;
   ProductData: any = [];
-  // delete: boolean = false;
   lastIndex: boolean = false;
+  discount: string ='10%';
+  vatTax: string = '10%';
+  totalVatTax : number = 0;
+  totalDiscount : number = 0; 
+  isOpen : boolean = false;
+  
+  constructor(public ProductsService: ProductsServiceService) { }
+  
+  ngOnInit(): void { 
+    debugger
+    this.initilizeProductData();
+  }
 
-  constructor(public ProductsService: ProductsServiceService) {
+  initilizeProductData(){
     this.ProductData = this.ProductsService.getProductData();
+    this.totalVatTax = (this.calculateTotalPrice()/ parseInt(this.vatTax))*100;
+    console.log(this.totalVatTax)
+    debugger
+    this.ProductsService.totalItems.subscribe((res: any) => {
+      this.totalItems = res;
+    })
   }
-
-  ngOnInit(): void {
-    this.totalItems = this.ProductsService.totalItems;
-  }
-
+  
   deleteIndex(i: number) {
-    debugger;
-    i == 0?
-   (   this.lastIndex = true,
-      this.ProductData.splice(i,1))
-    :
-    this.ProductData.splice(i,1);
-    // this.delete = true;
-  }
-
-  decrement(index: number, count: number) {
-    count == 0 ? '' : count--;
-    this.ProductData[index].count = count;
-  }
+    debugger
+    this.totalItems == 0 ? '' : this.totalItems--;
+    i == 0 ?
+    (this.lastIndex = true,
+      this.ProductData.splice(i, 1)) :
+      this.ProductData.splice(i, 1);
+    }
+    
+    decrement(index: number, count: number) {
+      debugger
+      this.totalItems == 0 ? '' : this.totalItems--;
+      count == 0 ? '' : count--;
+      this.ProductData[index].count = count;
+    }
 
   increment(index: number, count: number) {
+    debugger
+    this.totalItems++;
     count++;
     this.ProductData[index].count = count;
+  }
+  
+  calculateTotalPrice() {
+    let totalPrice :number = 0;
+    for (const product of this.ProductData) {
+      const subtotal = product.price * product.count;
+      totalPrice += subtotal;
+    }
+    return totalPrice;
+  }
+
+  getTotalVatTax(){
+    return  this.totalVatTax = (this.calculateTotalPrice()/100)*parseInt(this.vatTax);
+  }
+  
+  getTotaldiscount(){
+    return  this.totalVatTax = (this.calculateTotalPrice()/100)*parseInt(this.discount);  
+  }
+  
+  getTotalAmount(){
+    return this.calculateTotalPrice() + this.getTotalVatTax() + this.getTotaldiscount();
+  }
+  
+  cancelSale(){
+    debugger;
+    this.ProductData = [];
+    this.totalItems = 0;
+    this.discount = '10%';
+    this.vatTax = '10%';
+    this.totalVatTax = 0;
+    this.totalDiscount = 0;
+    this.ProductsService.resetComponent();
+    this.initilizeProductData();
+  }
+
+  showModal = false;
+
+  processSale() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

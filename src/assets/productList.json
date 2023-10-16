@@ -1,45 +1,44 @@
 [
     {
-    "name": "Phone",
-    "price": "130",
-    "category": "Phones",
-    "description": "",
-    "image": "/assets/mobile.png",
-    "overlayColor":" rgba(255, 0, 0, 0.5)"
+        "name": "Phone",
+        "price": "130",
+        "category": "Phones",
+        "description": "",
+        "image": "/assets/mobile.png"
     },
     {
-    "name": "Goggle",
-    "price": "2",
-    "category": "Glasses",
-    "description": "fashion, clothes , sweater, wool, cardigan,…",
-    "image": "/assets/goggles.png"
+        "name": "Goggle",
+        "price": "2",
+        "category": "Glasses",
+        "description": "fashion, clothes , sweater, wool, cardigan,…",
+        "image": "/assets/goggles.png"
     },
     {
-    "name": "tie",
-    "price": "46",
-    "category": "Clothing",
-    "description": "fashion, tie, clothes, accessory , accessoire,…",
-    "image": "tie.jpeg"
+        "name": "tie",
+        "price": "46",
+        "category": "Clothing",
+        "description": "fashion, tie, clothes, accessory , accessoire,…",
+        "image": "/assets/goggles.png"
     },
     {
-    "name": "jacket",
-    "price": "190",
-    "category": "Clothing",
-    "description": "winter jacket ",
-    "image": "jacket.jpeg"
+        "name": "jacket",
+        "price": "190",
+        "category": "Clothing",
+        "description": "winter jacket ",
+        "image": "/assets/mobile.png"
     },
-        {
+    {
         "name": "belt",
         "price": "90",
         "category": "Clothing",
         "description": "fashion, tie, clothes, accessory , accessoire,…",
-        "image": "belt.jpeg"
-        },
-        {
+        "image": "/assets/mobile.png"
+    },
+    {
         "name": "shirt",
         "price": "290",
         "category": "Clothing",
         "description": "winter jacket ",
-        "image": "shirt.jpeg"
-        }
-]    
+        "image": "/assets/mobile.png"
+    }
+]

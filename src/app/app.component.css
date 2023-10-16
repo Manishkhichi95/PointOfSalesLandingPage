@@ -1,3 +1,10 @@
 .main{
     display:flex;
 }
+
+@media (max-width: 575px) { 
+    .main {
+     display:flex;
+     flex-direction: row;
+   } 
+  }
